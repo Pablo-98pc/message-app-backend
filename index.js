@@ -5,9 +5,13 @@ const port = 3001;
 
 app.use(bodyParser.json());
 
+let data = require('./data.json')
+
+
 app.get('/', (req, res)=>{
     console.log(req.body);
-    res.send("hey 2!")
+    res.status(200).json(data)
+    res.send("hey")
 })
 
 app.listen(port,()=>{
