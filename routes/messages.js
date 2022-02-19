@@ -4,5 +4,5 @@ var router = require('express').Router();
 /* router.get('/togroup/:groupid', require('../controllers/messages/getmessages-togroup'));  */
 /* router.get('/fromuser/:userid', require('../controllers/messages/getmessages-fromuser'));  */
 /* router.get('/fromgroup/:groupid', require('../controllers/messages/getmessages-fromgroup'));  */
-/* router.post('/message', require('../controllers/messages/newmessage'));  */
+/* router.post('/newmessage', require('../controllers/messages/newmessage'));  */
 module.exports = router;
