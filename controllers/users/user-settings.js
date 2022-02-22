@@ -1,4 +1,4 @@
-const Movies = require('../../models/movies.js');
+const Movies = require('../../models/users.js');
 const checkData= require('../../helpers/checkData');
 function getMovie(req, res){
     let movies = new Movies ();
@@ -6,5 +6,5 @@ function getMovie(req, res){
     const [respuesta, resultChecked] = checkData(result);
     res.status(respuesta).json(resultChecked);
     }
-module.exports = getMovie;
+module.export = getMovie;
 
