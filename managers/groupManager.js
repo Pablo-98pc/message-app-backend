@@ -1,2 +1,2 @@
-import Group from '../models/groups';
-import myClient from './connection';
+const Group = require('../models/groups.js');
+const myClient = require('./connection.js');

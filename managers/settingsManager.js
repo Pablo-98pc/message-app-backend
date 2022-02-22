@@ -1,2 +1,2 @@
-import Settings from '../models/settings';
-import myClient from './connection';
+const Settings = require('../models/settings.js');
+const myClient = require('./connection.js');
