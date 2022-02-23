@@ -7,10 +7,10 @@ function getSearch(req, res){
     res.status(respuesta).json(resultChecked);
     }
 module.exports = getSearch; */
-const User = require('../../models/users.js')
+/* const User = require('../../models/users.js')
 function postUser(req, res){
     const newuser = {
-        user_id: 2,
+        user_id: 3,
         username: 'yomismo2',
         last_name: 'yo',
         first_name: 'mismo',
@@ -26,4 +26,12 @@ function postUser(req, res){
     let result = profile.postUser(newuser);
     res.status(200).json(result);
     }
-module.exports = postUser;
+module.exports = postUser; */
+const User = require('../../managers/user2Manager.js')
+
+async function newUser(req, res){
+    let result = await User.postUser(req.body);
+    res.status(200).json(result);
+}
+
+module.exports = newUser;
