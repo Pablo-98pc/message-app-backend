@@ -1,2 +1,2 @@
-import Message from '../models/messages';
+const Message = require('../models/messages');
 const myClient = require('./connection.js');

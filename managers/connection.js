@@ -8,4 +8,4 @@ const connectionData = {
 }
 const myClient = new Client(connectionData);
 
-module.export = myClient;
+module.exports = myClient;
