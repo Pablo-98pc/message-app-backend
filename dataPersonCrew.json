@@ -1,0 +1,137 @@
+{
+    "cast":[],
+    "crew":[
+    {
+    "adult":false,
+    "backdrop_path":"/qHytKjIn4WRfwGauPAks4W9Eury.jpg",
+    "genre_ids":[
+    9648,
+    12,
+    35,
+    10749,
+    18
+    ],
+    "original_language":"en",
+    "original_title":"Joe Dirt",
+    "poster_path":"/nQoZBpLqGydDjVRXILTx06DoLCF.jpg",
+    "vote_count":571,
+    "video":false,
+    "title":"Joe Dirt",
+    "vote_average":5.5,
+    "overview":"Joe Dirt is a janitor with a mullet hairdo, acid-washed jeans and a dream to find the parents that he lost at the Grand Canyon when he was a belligerent, trailer park-raised eight-year-old. Now, blasting Van Halen in his jacked-up economy car, the irrepressibly optimistic Joe hits the road alone in search of his folks.",
+    "release_date":"2001-04-10",
+    "id":10956,
+    "popularity":17.834,
+    "credit_id":"52fe43d89251416c75020677",
+    "department":"Writing",
+    "job":"Screenplay"
+    },
+    {
+    "backdrop_path":"/cyoqTf83PhirrpUosZZ88IQ70qw.jpg",
+    "genre_ids":[
+    35
+    ],
+    "original_language":"en",
+    "original_title":"Dickie Roberts: Former Child Star",
+    "poster_path":"/6dgCPSVEEMU2BLvxOzBAvkQjIeL.jpg",
+    "video":false,
+    "id":13778,
+    "vote_count":152,
+    "overview":"TV child star of the '70s, Dickie Roberts is now 35 and parking cars. Craving to regain the spotlight, he auditions for a role of a normal guy, but the director quickly sees he is anything but normal. Desperate to win the part, Dickie hires a family to help him replay his childhood and assume the identity of an average, everyday kid.",
+    "release_date":"2003-09-04",
+    "vote_average":5.1,
+    "title":"Dickie Roberts: Former Child Star",
+    "adult":false,
+    "popularity":12.171,
+    "credit_id":"52fe459c9251416c7505c709",
+    "department":"Writing",
+    "job":"Screenplay"
+    },
+    {
+    "id":73997,
+    "video":false,
+    "vote_count":6,
+    "vote_average":4.3,
+    "title":"David Spade: Take the Hit",
+    "release_date":"1998-04-17",
+    "original_language":"en",
+    "original_title":"David Spade: Take the Hit",
+    "genre_ids":[
+    35
+    ],
+    "backdrop_path":null,
+    "adult":false,
+    "overview":"David Spade focuses on pop-culture bashing in his first solo HBO TV comedy special that aired on April 17, 1998 and was taped in front of a live audience. In this 60 minute show, David Spade uses his everyday life experiences as a platform for his jokes.",
+    "poster_path":"/bYfiNPOGLVseQQcZPQwbDQagdqH.jpg",
+    "popularity":1.4,
+    "credit_id":"52fe48b6c3a368484e106f03",
+    "department":"Writing",
+    "job":"Writer"
+    },
+    {
+    "adult":false,
+    "backdrop_path":"/upZu3Zgnm9ZP5L6kGE2WcbnhpS8.jpg",
+    "genre_ids":[
+    35,
+    10749
+    ],
+    "original_language":"en",
+    "original_title":"Lost \u0026 Found",
+    "poster_path":"/wWfQyBJL0NaN6sbZha5KuqTfaHy.jpg",
+    "id":39964,
+    "video":false,
+    "vote_average":5.2,
+    "overview":"In order to impress his beautiful French neighbor, Dylan Ramsey dognaps her pet pooch so he can return him and become a hero.",
+    "release_date":"1999-04-23",
+    "vote_count":69,
+    "title":"Lost \u0026 Found",
+    "popularity":6.664,
+    "credit_id":"54889b2e92514151ff0024c5",
+    "department":"Writing",
+    "job":"Writer"
+    },
+    {
+    "release_date":"2015-07-16",
+    "adult":false,
+    "backdrop_path":"/8xpVDoRy0fZzhMSUBG8nksctu9i.jpg",
+    "genre_ids":[
+    35
+    ],
+    "vote_count":112,
+    "original_language":"en",
+    "original_title":"Joe Dirt 2: Beautiful Loser",
+    "poster_path":"/nde744Wjaj11BXA4npXcByLDMkw.jpg",
+    "title":"Joe Dirt 2: Beautiful Loser",
+    "video":false,
+    "vote_average":4.9,
+    "id":335970,
+    "overview":"When happy family man Joe Dirt finds himself transported to the recent past, he begins an epic journey to get back to his loved ones in the present.",
+    "popularity":10.818,
+    "credit_id":"5537b7ed9251412d910028ac",
+    "department":"Writing",
+    "job":"Writer"
+    },
+    {
+    "original_title":"Mad Families",
+    "poster_path":"/leliLuYey1PCfu91EMm38frxCQU.jpg",
+    "title":"Mad Families",
+    "vote_average":4.6,
+    "overview":"Three families compete for a camping spot during a busy Fourth of July holiday weekend.",
+    "release_date":"2017-01-12",
+    "vote_count":42,
+    "adult":false,
+    "backdrop_path":"/vQxW6ierQdgfSDITSHIUxvmyN32.jpg",
+    "video":false,
+    "genre_ids":[
+    35
+    ],
+    "id":431071,
+    "original_language":"en",
+    "popularity":11.829,
+    "credit_id":"58598c93c3a368258f06b4ac",
+    "department":"Writing",
+    "job":"Writer"
+    }
+    ],
+    "id":60950
+    }
