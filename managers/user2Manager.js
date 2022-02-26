@@ -1,8 +1,7 @@
-/* import User from '../models/users2'; */
 const User = require('../models/users2.js');
 const myClient = require('./connection.js');
-
-class userManager extends User{
+const checkData = require('../helpers/checkData');
+class userManager extends User{ 
 
     static async getUserProfile(id) {
         myClient.connect();   
@@ -12,9 +11,11 @@ class userManager extends User{
         } 
         catch(err) {
             console.log('ERROR!!!!!');
-        };
-        myClient.end(); 
-        return data.rows[0];        
+        }
+        finally {
+            myClient.end(); 
+        }
+        return (data.rows[0]);  
     }
     static async postUser(body) {
         myClient.connect();   
@@ -36,9 +37,11 @@ class userManager extends User{
         } 
         catch(err) {
             console.log('ERROR!!!!!');
+        }
+        finally {
+            myClient.end(); 
         };
-        myClient.end(); 
-        return data;        
+        return checkData(data);        
     }
     
   }
