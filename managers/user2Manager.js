@@ -1,10 +1,11 @@
 const User = require('../models/users2.js');
-const myClient = require('./connection.js');
+const newClient = require('./connection.js');
 const checkData = require('../helpers/checkData');
 class userManager extends User{ 
 
-    static async getUserProfile(id) {
-        myClient.connect();   
+    static async getUserProfile(id) { 
+        const myClient = newClient();
+        await myClient.connect();
         let data;
         try {
             data = await myClient.query(`SELECT * FROM users where user_id = ${id};`)
@@ -14,11 +15,14 @@ class userManager extends User{
         }
         finally {
             myClient.end(); 
-        }
+        } 
+        console.log(data);
+        console.log(`SELECT * FROM users where user_id = ${id};`);
         return (data.rows[0]);  
     }
     static async postUser(body) {
-        myClient.connect();   
+        const myClient = newClient();
+        await myClient.connect();   
         console.log(body);
         let bodyjson = JSON.stringify(body);
         console.log(bodyjson);

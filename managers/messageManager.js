@@ -1,11 +1,12 @@
 const Message = require('../models/messages.js');
-const myClient = require('./connection.js');
+const newClient = require('./connection.js');
 const checkData = require('../helpers/checkData');
 
 class messageManager extends Message{
 
     static async getMessagesWithGroup(groupid) {
-        myClient.connect();   
+        const myClient = newClient();
+        await myClient.connect();        
         let data;
         console.log('antes del try')
         try {
@@ -19,6 +20,23 @@ class messageManager extends Message{
         }
         return checkData(data);
     }
+    static async getMessagesWithUser(userid) {
+        const myClient = newClient();
+        await myClient.connect();        
+        let data;
+        console.log('antes del try')
+        try {
+            data = await myClient.query(`SELECT * FROM messages where from_user = ${userid} or to_user = ${userid};`)
+        } 
+        catch(err) {
+            console.log('ERROR!!!!!');
+        }
+        finally {
+            myClient.end(); 
+        }
+        return checkData(data);
+    }
+
 /*     static async getUserProfile(id) {
         myClient.connect();   
         let data;
