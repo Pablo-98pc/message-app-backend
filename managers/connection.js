@@ -6,6 +6,9 @@ const connectionData = {
     password: '1234',
     port: 5432,
 }
-const myClient = new Client(connectionData);
 
-module.exports = myClient;
+function newClient() {
+    return new Client (connectionData);
+}
+
+module.exports = newClient;
