@@ -16,17 +16,27 @@ class userManager extends User{
         finally {
             myClient.end(); 
         } 
-        console.log(data);
-        console.log(`SELECT * FROM users where user_id = ${id};`);
+        return (data.rows[0]);  
+    }
+    static async getUserByUsername(username) { 
+        const myClient = newClient();
+        await myClient.connect();
+        let data;
+        try {
+            data = await myClient.query(`SELECT * FROM users where username = '${username}';`)
+        } 
+        catch(err) {
+            console.log('ERROR!!!!!');
+        }
+        finally {
+            myClient.end(); 
+        } 
         return (data.rows[0]);  
     }
     static async postUser(body) {
         const myClient = newClient();
         await myClient.connect();   
-        console.log(body);
         let bodyjson = JSON.stringify(body);
-        console.log(bodyjson);
-        console.log(body.user_id);
         let data;
         try {
             data = "post undone";

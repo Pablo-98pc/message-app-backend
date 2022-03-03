@@ -18,7 +18,7 @@ class messageManager extends Message{
         finally {
             myClient.end(); 
         }
-        return checkData(data);
+        return /* checkData */(data);
     }
     static async getMessagesWithUser(userid) {
         const myClient = newClient();
@@ -34,7 +34,23 @@ class messageManager extends Message{
         finally {
             myClient.end(); 
         }
-        return checkData(data);
+        return /* checkData */(data);
+    }
+    static async getMessagesBetween(user1,user2) {
+        const myClient = newClient();
+        await myClient.connect();        
+        let data;
+        console.log('antes del try de dos usuarios')
+        try {
+            data = await myClient.query(`SELECT * FROM messages where (from_user = ${user1} and to_user = ${user2}) or (from_user = ${user2} and to_user = ${user1});`)
+        } 
+        catch(err) {
+            console.log('ERROR!!!!!');
+        }
+        finally {
+            myClient.end(); 
+        }
+        return /* checkData */(data);
     }
 
 /*     static async getUserProfile(id) {

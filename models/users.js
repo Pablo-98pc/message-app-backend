@@ -1,5 +1,3 @@
-/* const data = require('../dataMoviesComplete.json'); */
-const credits = require('../dataCastCrew.json');
 const { Client } = require('pg');
 const connectionData = {
     user: 'postgres',
