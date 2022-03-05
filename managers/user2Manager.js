@@ -8,7 +8,7 @@ class userManager extends User{
         await myClient.connect();
         let data;
         try {
-            data = await myClient.query(`SELECT * FROM users where user_id = ${id};`)
+            data = await myClient.query(`SELECT * FROM users where id = ${id};`)
         } 
         catch(err) {
             console.log('ERROR!!!!!');
