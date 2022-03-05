@@ -1,6 +1,6 @@
 var router = require('express').Router();
 router.get('/:userid', require('../controllers/users/user-profile')); 
-/* router.get('/settings/:userid', require('../controllers/users/user-settings'));  */
+router.get('/profile/:userid', require('../controllers/users/user-avatar'));  
 router.get('/byusername/:username', require('../controllers/users/user-byusername')); 
 router.post('/newuser', require('../controllers/users/new-user')); 
 /* router.patch('/addfriend/:userid/:friendid', require('../controllers/users/new-friend')); 

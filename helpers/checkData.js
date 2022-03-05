@@ -1,5 +1,5 @@
 function checkData (result){
-    if (result.length > 0 ) {
+    if (result) {
             return [200,result]; 
         }   
 /*     if (JSON.stringify(result)!=='{}') {

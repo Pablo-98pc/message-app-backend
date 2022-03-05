@@ -18,7 +18,7 @@ class userManager extends User{
         } 
         console.log(data);
         console.log(`SELECT * FROM users where user_id = ${id};`);
-        return (data.rows[0]);  
+        return data.rows[0]
     }
     static async postUser(body) {
         const myClient = newClient();
