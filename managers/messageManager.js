@@ -53,6 +53,23 @@ class messageManager extends Message{
         return /* checkData */(data);
     }
 
+    static async getMessage(id) {
+        const myClient = newClient();
+        await myClient.connect();        
+        console.log(id);
+        let data;
+        try {
+            data = await myClient.query(`SELECT * FROM messages where (id = ${id});`)
+        } 
+        catch(err) {
+            console.log('ERROR!!!!!');
+        }
+        finally {
+            myClient.end(); 
+        }
+        return /* checkData */(data.rows[0]);
+    }
+
 /*     static async getUserProfile(id) {
         myClient.connect();   
         let data;
