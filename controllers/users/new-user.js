@@ -30,6 +30,7 @@ module.exports = postUser; */
 const User = require('../../managers/user2Manager.js')
 
 async function newUser(req, res){
+    console.log(req.body);
     let result = await User.postUser(req.body);
     res.status(200).json(result);
 }
