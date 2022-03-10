@@ -1,12 +1,9 @@
-const Movies = require('../../models/users.js');
-const checkData= require('../../helpers/checkData');
-function getMovie(req, res){
-    let movies = new Movies ();
-    console.log(req);
-    console.log(req.params.id);
-    console.log(parseInt(req.params.id)*100);
-    let result = movies.getMoviesByGenre(req.params.id);
-    const [respuesta, resultChecked] = checkData(result);
-    res.status(respuesta).json(resultChecked);
-    }
-module.exports = getMovie;
+const User = require('../../managers/user2Manager.js')
+
+async function getUserByUsername(req, res){
+    let result = await User.getUserByUsername(req.params.username);
+    console.log(req.params.username);
+    res.status(200).json(result);
+}
+
+module.exports = getUserByUsername;
