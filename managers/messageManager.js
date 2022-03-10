@@ -70,6 +70,64 @@ class messageManager extends Message{
         return /* checkData */(data.rows[0]);
     }
 
+    static async getMessageByDate(date) {
+        const myClient = newClient();
+        await myClient.connect();  
+        let datetosearch = date.replace("T"," ");      
+        datetosearch = datetosearch.replace("Z","");      
+        let data;
+        try {
+            data = await myClient.query(`SELECT * FROM messages where (date = '${datetosearch}');`)
+        } 
+        catch(err) {
+            console.log('ERROR!!!!!');
+        }
+        finally {
+            myClient.end(); 
+        }
+        return /* checkData */(data.rows[0]);
+    }
+
+    static async postMessage(body, type) {
+        const myClient = newClient();
+        await myClient.connect();   
+        let data;
+        console.log(body);
+        if (type === 'user') {
+            try {
+                console.log('dentro del try');
+                data = "post undone";
+                await myClient.query(`INSERT INTO messages (id,groupmessage,text, subject, from_user, to_user, date) 
+                values(default,false,'${body.text}','${body.subject}', 
+                ${body.from_user},${body.to_user},'${body.date}');`); 
+                //lo de meter los grupos y los amigos es por probar, porque esto no se puede meter al crear un usuario
+                data = "post succesfull";
+                } 
+            catch(err) {
+                console.log('ERROR!!!!!');
+            }
+            finally {
+                myClient.end(); 
+            };                
+        }
+        else {
+            console.log('dentro del else');
+            try{
+                await myClient.query(`INSERT INTO messages (id,groupmessage,text, subject, from_user, to_user, date) 
+                values(default,true,'${body.text}','${body.subject}', 
+                '${body.from_user}','${body.to_group}',${body.date});`); 
+            }
+                catch(err) {
+                    console.log('ERROR!!!!!');
+                }
+                finally {
+                    myClient.end(); 
+                };  
+        } 
+    
+        return (console.log('post succesfull'));        
+    }    
+
 /*     static async getUserProfile(id) {
         myClient.connect();   
         let data;
