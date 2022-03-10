@@ -1,4 +1,5 @@
 require('dotenv').config(); 
+var md5 =require('md5');
 var app = require('express')();
 const bodyParser = require('body-parser');
 app.use(bodyParser.json());
