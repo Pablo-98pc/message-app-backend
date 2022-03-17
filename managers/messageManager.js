@@ -27,6 +27,7 @@ class messageManager extends Message{
         console.log('antes del try')
         try {
             data = await myClient.query(`SELECT * FROM messages where from_user = ${userid} or to_user = ${userid};`)
+            
         } 
         catch(err) {
             console.log('ERROR!!!!!');
