@@ -7,7 +7,6 @@ class messageManager extends Message {
     const myClient = newClient();
     await myClient.connect();
     let data;
-    console.log("antes del try");
     try {
       data = await myClient.query(
         `SELECT * FROM messages where from_group = ${groupid} or to_group = ${groupid};`,
@@ -80,7 +79,6 @@ class messageManager extends Message {
   static async getMessage(id) {
     const myClient = newClient();
     await myClient.connect();
-    console.log(id);
     let data;
     try {
       data = await myClient.query(`SELECT * FROM messages where (id = ${id});`);
@@ -114,7 +112,6 @@ class messageManager extends Message {
     const myClient = newClient();
     await myClient.connect();
     let data;
-    console.log(body);
     if (type === "user") {
       try {
         console.log("dentro del try");
@@ -130,7 +127,6 @@ class messageManager extends Message {
         myClient.end();
       }
     } else {
-      console.log("dentro del else");
       try {
         await myClient.query(`INSERT INTO messages (id,groupmessage,text, subject, from_user, to_user, date) 
                 values(default,true,'${body.text}','${body.subject}', 
