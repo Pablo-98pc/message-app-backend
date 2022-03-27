@@ -1,8 +1,9 @@
 require("dotenv").config();
-const cors = require("cors");
+var cors = require("cors");
 var md5 = require("md5");
 var app = require("express")();
 const bodyParser = require("body-parser");
+app.use(cors());
 app.use(bodyParser.json());
 app.use(cors());
 /* app.use(require('./middlewares/checkBody')); */

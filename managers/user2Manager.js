@@ -40,18 +40,22 @@ class userManager extends User {
     let codedpassword = md5(password);
     try {
       console.log("dentro del try del login");
-      data = await myClient.query(
-        `SELECT * FROM users where username = ${username};`,
-      );
+      // Utilizamos metodo correcto de añadir parametros a la query
+      data = await myClient.query("SELECT * FROM users where username = $1", [
+        username,
+      ]);
       console.log(data);
     } catch (err) {
-      console.log("ERROR!!!!!");
+      console.log("ERROR de login", err);
     } finally {
       myClient.end();
     }
-    return data.rows[0]?.password === codedpassword
-      ? data.rows[0]
-      : console.log("password does not match");
+
+    return data.rowCount !== 0
+      ? data.rows[0].password === codedpassword
+        ? data.rows[0]
+        : console.log("password does not match")
+      : null;
   }
 
   static async postUser(body) {
