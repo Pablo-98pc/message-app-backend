@@ -1,6 +1,7 @@
 const Message = require("../models/messages.js");
 const newClient = require("./connection.js");
 const checkData = require("../helpers/checkData");
+const { getValue } = require('../helpers/redis')
 
 class messageManager extends Message {
   static async getMessagesWithGroup(groupid) {
@@ -121,8 +122,11 @@ class messageManager extends Message {
                 ${body.from_user},${body.to_user},'${body.date}');`);
         //lo de meter los grupos y los amigos es por probar, porque esto no se puede meter al crear un usuario
         data = "post succesfull";
+        //We verify if the user is logged in and registered in redis.
+        let userEmit = await getValue(body.to_user);
+        global.io.to(userEmit).emit("news");
       } catch (err) {
-        console.log("ERROR!!!!!");
+        console.log("ERROR!!!!!",err);
       } finally {
         myClient.end();
       }
