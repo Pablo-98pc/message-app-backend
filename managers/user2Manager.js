@@ -39,12 +39,10 @@ class userManager extends User {
     let data;
     let codedpassword = md5(password);
     try {
-      console.log("dentro del try del login");
       // Utilizamos metodo correcto de añadir parametros a la query
       data = await myClient.query("SELECT * FROM users where username = $1", [
         username,
       ]);
-      console.log(data);
     } catch (err) {
       console.log("ERROR de login", err);
     } finally {

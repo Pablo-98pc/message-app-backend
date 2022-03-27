@@ -1,13 +1,13 @@
 const Message = require("../models/messages.js");
 const newClient = require("./connection.js");
 const checkData = require("../helpers/checkData");
+const { getValue } = require('../helpers/redis')
 
 class messageManager extends Message {
   static async getMessagesWithGroup(groupid) {
     const myClient = newClient();
     await myClient.connect();
     let data;
-    console.log("antes del try");
     try {
       data = await myClient.query(
         `SELECT * FROM messages where from_group = ${groupid} or to_group = ${groupid};`,
@@ -80,7 +80,6 @@ class messageManager extends Message {
   static async getMessage(id) {
     const myClient = newClient();
     await myClient.connect();
-    console.log(id);
     let data;
     try {
       data = await myClient.query(`SELECT * FROM messages where (id = ${id});`);
@@ -114,7 +113,6 @@ class messageManager extends Message {
     const myClient = newClient();
     await myClient.connect();
     let data;
-    console.log(body);
     if (type === "user") {
       try {
         console.log("dentro del try");
@@ -124,13 +122,15 @@ class messageManager extends Message {
                 ${body.from_user},${body.to_user},'${body.date}');`);
         //lo de meter los grupos y los amigos es por probar, porque esto no se puede meter al crear un usuario
         data = "post succesfull";
+        //We verify if the user is logged in and registered in redis.
+        let userEmit = await getValue(body.to_user);
+        global.io.to(userEmit).emit("news");
       } catch (err) {
-        console.log("ERROR!!!!!");
+        console.log("ERROR!!!!!",err);
       } finally {
         myClient.end();
       }
     } else {
-      console.log("dentro del else");
       try {
         await myClient.query(`INSERT INTO messages (id,groupmessage,text, subject, from_user, to_user, date) 
                 values(default,true,'${body.text}','${body.subject}', 
