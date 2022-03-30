@@ -43,17 +43,17 @@ class userManager extends User {
       data = await myClient.query("SELECT * FROM users where username = $1", [
         username,
       ]);
+      return data.rowCount !== 0
+        ? data.rows[0].password === codedpassword
+          ? data.rows[0]
+          : console.log("password does not match")
+        : null;
     } catch (err) {
       console.log("ERROR de login", err);
     } finally {
       myClient.end();
     }
-
-    return data.rowCount !== 0
-      ? data.rows[0].password === codedpassword
-        ? data.rows[0]
-        : console.log("password does not match")
-      : null;
+    // console.log("password", data.rows[0].password);
   }
 
   static async postUser(body) {
