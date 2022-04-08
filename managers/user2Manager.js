@@ -1,23 +1,37 @@
+const User2 = require('../models/users4.js');
 const User = require('../models/users2.js');
 const newClient = require('./connection.js');
 const checkData = require('../helpers/checkData');
 const md5 = require('md5');
+console.log('en users manager, antes de la clase');
+
+
 class userManager extends User{ 
 
     static async getUserProfile(id) { 
+        console.log('al principio de la funcion');
         const myClient = newClient();
-        await myClient.connect();
+        /* await myClient.connect(); */
         let data;
+        console.log('en el manager, antes del try');
         try {
-            data = await myClient.query(`SELECT * FROM users where id = ${id};`)
+            console.log('en el try del manager, antes de la peticion');
+           /*  data = await myClient.query(`SELECT * FROM users where id = ${id};`) */
+            /* data = await myClient.query(`db.users.find();`) */
+            /* data = await myClient.db.collection('users').find({name: "santi"}); */
+            /* data = await myClient.query(db.collection('users').find({name: 'santi'})); */
+           /*data = await myClient.db("UrlShortener").collection("users").findOne({name:'santi'}); */
+            data = await myClient.db("UrlShortener").collection("users").find({name:'santi'});
+            /* data = await User.find({name:'santi'}); */
         } 
         catch(err) {
             console.log('ERROR!!!!!');
         }
-        finally {
+        /* finally {
             myClient.end(); 
-        } 
-        return (data.rows[0]);  
+        }  */
+        console.log(data);
+        return (data);  
     }
     
     static async getUserByUsername(username) { 

@@ -1,10 +1,9 @@
 var router = require('express').Router();
+console.log('en users router');
 router.get('/:userid', require('../controllers/users/user-profile')); 
-/* router.get('/settings/:userid', require('../controllers/users/user-settings'));  */
-router.get('/byusername/:username', require('../controllers/users/user-byusername')); 
-router.get('/byusernamelogin/:username/:password', require('../controllers/users/user-byusername-login')); 
+router.get('/all', require('../controllers/users/get-all')); 
 router.post('/newuser', require('../controllers/users/new-user')); 
-/* router.patch('/addfriend/:userid/:friendid', require('../controllers/users/new-friend')); 
-router.patch('/group/:groupid/:userid', require('../controllers/users/new-group')); 
-router.patch('/deletefriend/:userid/:friendid', require('../controllers/users/delete-friend'));  */
+router.post('/newurl', require('../controllers/users/reduceUrl')); 
+router.post('/newurl2', require('../controllers/users/reduceUrl2')); 
+
 module.exports = router;
